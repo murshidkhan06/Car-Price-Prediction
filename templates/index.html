@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell your car at fair price</title>
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" style="color:#000000">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2><b>Car Price Predictor</b></h2>
+            <hr>
+            <h5>Year</h5>
+                <input id="first" name="Year of Purchase" type="number">
+            <h5>Showroom Price (In lakhs: eg: 8/9/10..)</h5>
+                <input id="second" name="Present_Price" required="required">
+            <h5>Kilometers Driven Till Date?</h5>
+                <input id="third" name="Kms_Driven" required="required">
+            <h5>How much owners previously had the car(0 or 1 or 2) ?</h5>
+                <input id="fourth" name="Owner" required="required">
+            <h5>What Is the Fuel type?</h5>
+                <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            <h5>Are you A Dealer or Individual</h5>
+                <select name="Seller_Type_Individual" id="resea" required="required">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            <h5>Transmission type</h5>
+                <select name="Transmission_Mannual" id="research" required="required">
+                    <option value="Mannual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select>
+            <br><br><button id="sub" type="submit ">Calculate the Selling Price</button>
+            <br>
+
+
+
+
+        </form>
+
+        <br><br><h3><b>{{ prediction_text }}</b></h3>
+    </div>
+
+
+
+    <style>
+        body {
+            background-image: url('/static/images/img1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 5px;
+        }
+        h5 {
+             padding: 5px;
+        }
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+        }
+        
+        #fuel {
+            width: 150px;
+            height: 43px;
+            text-align: center;
+            border-radius: 16px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: #66CDAA;
+        }
+        
+        #research {
+            width: 150px;
+            height: 43px;
+            text-align: center;
+            border-radius: 16px;
+            font-size: 20px;
+        }
+        
+        #research:hover {
+            background-color: #66CDAA;
+        }
+        
+        #resea {
+            width: 150px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #resea:hover {
+            background-color: #66CDAA;
+        }
+        
+        #sub {
+            width: 250px;
+            height: 50px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+        
+        #sub:hover {
+            background-color: #20B2AA;
+        }
+        
+        #first {
+            border-radius: 14px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            text-align: center;
+        }
+    </style>
+        <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js"></script>
+</body>
+
+</html>
